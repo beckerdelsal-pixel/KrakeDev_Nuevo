@@ -4,3 +4,4 @@ saludar = function(){
     cmpImagensaludo.src = "./Imagenes/gif_ganar2.gif";
     console.log("Ingresa a saludar");
 }
+
