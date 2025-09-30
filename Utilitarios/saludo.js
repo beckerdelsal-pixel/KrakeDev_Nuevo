@@ -10,6 +10,13 @@ saludar = function(){
     let mensaje;
     mensaje = "Bienvenido " + nombre + " " + apellido;
     mostrarTexto("lblResultado", mensaje);
+    mostrarImagen("imgSaludo","./imagenes/saludo.gif");
+}
+
+mostrarImagen = function(idComponente, rutaImagen){
+    let componente;
+    componente = document.getElementById(idComponente);
+    componente.src = rutaImagen;
 }
 
 mostrarTexto = function(idComponente, mensaje){
