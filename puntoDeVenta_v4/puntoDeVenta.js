@@ -52,7 +52,8 @@ calcularValorTotal = function () {
     //9. Mostrar el resultado en el componente lblValorIVA    
     let subtotal = valorSubtotal - valorDescuento;
     valorIVA = calcularIVA(subtotal);
-    mostrarTexto("lblValorIVA",valorIVA);
+    valorIVAF = valorIVA.toFixed(2);
+    mostrarTexto("lblValorIVA",valorIVAF);
         /*
             Caso de prueba: 
                 - cantidad: 10 
@@ -71,7 +72,8 @@ calcularValorTotal = function () {
     //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
     //11. Mostrar el resultado en el componente lblTotal
     valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA);
-    mostrarTexto("lblTotal",valorTotal);
+    valorTotalF = valorTotal.toFixed(2);
+    mostrarTexto("lblTotal",valorTotalF);
     /*
         Caso de prueba: 
             - cantidad: 10
@@ -88,6 +90,8 @@ calcularValorTotal = function () {
        */
             
     //12. Mostrar un resumen en el componente lblResumen, si no existe debe agregarlo
+    let resumen = "Valor a pagar por "+cantidad+ " "+nombreProducto+ " con "+ porcentajeDescuento+"%" + " de descuento: USD $"+valorTotalF;
+    mostrarTexto("lblResumen",resumen);
     /*
         Ejemplo: 
             Valor a pagar por 20 cerveza corona con 10% de descuento: USD 48.75
