@@ -37,6 +37,8 @@ calcularValorTotal = function () {
      */
     //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento
     //7. Mostrar el resultado en el componente lblDescuento
+    valorDescuento = calcularValorDescuento (valorSubtotal,porcentajeDescuento);
+    mostrarTexto("lblDescuento",valorDescuento);
     /*
         Caso de prueba: 
             - cantidad: 10 
