@@ -17,11 +17,18 @@
         <div class="contenido">
             <input type="text" id="txtPlaca" class="cajaTexto" />
             <br>
-            <input type="button" class="boton" value="VALIDAR" onclick="validarPlaca();" />
+            <div class="contenedorBoton">
+                <input type="button" class="boton" value="VALIDAR" onclick="validarPlaca();" />
+            </div>
+            <br>
+            <div class="contenedorBoton">
+                <input type="button" class="boton" value="LIMPIAR" onclick="limpiar();"/>
+            </div>
+
             <div id="lblValidacion" class="validacion">
-            </div> 
+            </div>
             <div id="lblResumen" class="resumen">
-            </div> 
+            </div>
             <div id="lblProvincia" class="resumen">
             </div>
             <div id="lblVehiculo" class="resumen">

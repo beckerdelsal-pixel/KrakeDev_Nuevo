@@ -28,3 +28,12 @@ validarPlaca = function(){
         mostrarTexto("lblValidacion",mensaje);
     }
 }
+
+limpiar = function(){
+    mostrarTextoEnCaja("txtPlaca","");
+    mostrarTexto("lblValidacion","");
+    mostrarTexto("lblResumen","");
+    mostrarTexto("lblProvincia","");
+    mostrarTexto("lblVehiculo","");
+    mostrarTexto("lblPicoYPlaca","");
+}

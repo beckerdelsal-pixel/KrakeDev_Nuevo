@@ -24,6 +24,9 @@ body{
 }
 
 .boton{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     border-radius: 10px;
     border-color: chartreuse;
     width: 100px;
@@ -31,6 +34,13 @@ body{
     background-color: burlywood;
     align-self: center;
     font-weight: bolder;
+    
+}
+
+.contenedorBoton{
+    display: flex;
+    flex:1;
+    justify-content: center;
 }
 
 .cajaTexto{
