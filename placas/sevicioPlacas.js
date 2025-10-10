@@ -40,55 +40,76 @@ validarEstructura = function (placa) {
 }
 
 obtenerProvincia = function (placa) {
-    if(placa.charAt(0) == "A"){
+    if (placa.charAt(0) == "A") {
         return "Azuay";
-    }else if(placa.charAt(0) =="B"){
+    } else if (placa.charAt(0) == "B") {
         return "Bolivar";
-    }else if(placa.charAt(0) =="U"){
+    } else if (placa.charAt(0) == "U") {
         return "Caniar";
-    }else if(placa.charAt(0) =="C"){
+    } else if (placa.charAt(0) == "C") {
         return "Carchi";
-    }else if(placa.charAt(0) =="X"){
+    } else if (placa.charAt(0) == "X") {
         return "Cotopaxi";
-    }else if(placa.charAt(0) =="H"){
+    } else if (placa.charAt(0) == "H") {
         return "Chimborazo"
-    }else if(placa.charAt(0) =="O"){
+    } else if (placa.charAt(0) == "O") {
         return "El Oro";
-    }else if(placa.charAt(0) =="E"){
+    } else if (placa.charAt(0) == "E") {
         return "Esmeraldas";
-    }else if(placa.charAt(0) =="W"){
+    } else if (placa.charAt(0) == "W") {
         return "Galapagos";
-    }else if(placa.charAt(0) =="G"){
+    } else if (placa.charAt(0) == "G") {
         return "Guayas";
-    }else if(placa.charAt(0) =="I"){
+    } else if (placa.charAt(0) == "I") {
         return "Imbabura";
-    }else if(placa.charAt(0) =="L"){
+    } else if (placa.charAt(0) == "L") {
         return "Loja";
-    }else if(placa.charAt(0) =="R"){
+    } else if (placa.charAt(0) == "R") {
         return "Los Rios";
-    }else if(placa.charAt(0) =="M"){
+    } else if (placa.charAt(0) == "M") {
         return "Manabi";
-    }else if(placa.charAt(0) =="V"){
+    } else if (placa.charAt(0) == "V") {
         return "Morona Santiago";
-    }else if(placa.charAt(0) =="N"){
+    } else if (placa.charAt(0) == "N") {
         return "Napo";
-    }else if(placa.charAt(0) =="S"){
+    } else if (placa.charAt(0) == "S") {
         return "Pastaza";
-    }else if(placa.charAt(0) =="P"){
+    } else if (placa.charAt(0) == "P") {
         return "Pichincha";
-    }else if(placa.charAt(0) =="K"){
+    } else if (placa.charAt(0) == "K") {
         return "Sucumbíos";
-    }else if(placa.charAt(0) =="Q"){
+    } else if (placa.charAt(0) == "Q") {
         return "Orellana";
-    }else if(placa.charAt(0) =="T"){
+    } else if (placa.charAt(0) == "T") {
         return "Tungurahua";
-    }else if(placa.charAt(0) =="Z"){
+    } else if (placa.charAt(0) == "Z") {
         return "Zamora Chinchipe";
-    }else if(placa.charAt(0) =="Y"){
+    } else if (placa.charAt(0) == "Y") {
         return "Santa Elena";
+    } else {
+        return null;
+    }
+
+}
+
+obtenerTipoVehiculo = function (placa) {
+    if (placa.charAt(1) == "A" || placa.charAt(1) == "Z") {
+        return "Vehiculos Comerciales";
+    } else if (placa.charAt(1) == "E") {
+        return "Vehiculos Gubernamentales";
+    } else if (placa.charAt(1) == "X") {
+        return "Vehiculos de uso Oficial";
+    } else if (placa.charAt(1) == "S") {
+        return "Vehiculos del Gobierno Provincial";
+    } else if (placa.charAt(1) == "M") {
+        return "Vehiculos Municipales";
+    } else if (placa.charAt(1) == "B" || placa.charAt(1) == "U" || placa.charAt(1) == "C"
+        || placa.charAt(1) == "H" || placa.charAt(1) == "O" || placa.charAt(1) == "W" || placa.charAt(1) == "G"
+        || placa.charAt(1) == "I" || placa.charAt(1) == "L" || placa.charAt(1) == "R" || placa.charAt(1) == "V"
+        || placa.charAt(1) == "N" || placa.charAt(1) == "P" || placa.charAt(1) == "K" || placa.charAt(1) == "Q"
+        || placa.charAt(1) == "T" || placa.charAt(1) == "Y") {
+            return "Vehiculo Particular (Privado)";
     }else{
         return null;
     }
-    
-  
 }

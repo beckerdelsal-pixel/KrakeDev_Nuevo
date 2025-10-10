@@ -7,11 +7,17 @@ validarPlaca = function(){
         mostrarTexto("lblValidacion","ESTRUCTURA VALIDA");
         let provincia =obtenerProvincia(placa);
         if (provincia != null){
-            mostrarTexto("lblResumen",provincia);
+            mostrarTexto("lblProvincia",provincia);
         }else{
-            mostrarTexto("lblResumen","PROVINCIA INCORRECTA");
+            mostrarTexto("lblProvincia","PROVINCIA INCORRECTA");
         }
-        
+        let TipoVehiculo;
+        TipoVehiculo = obtenerTipoVehiculo(placa);
+        if(TipoVehiculo != null){
+            mostrarTexto("lblVehiculo",TipoVehiculo);
+        }else{
+            mostrarTexto("lblVehiculo","VEHICULO INCORRECTO");
+        }
         
     }else{
         let mensaje = "ESTRUCTURA INCORRECTA: "+erroresEstructura;
