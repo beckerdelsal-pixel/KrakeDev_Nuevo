@@ -18,6 +18,10 @@ validarPlaca = function(){
         }else{
             mostrarTexto("lblVehiculo","VEHICULO INCORRECTO");
         }
+
+        let picoYPlaca;
+        picoYPlaca = obtenerDiaPicoYPlaca(placa);
+        mostrarTexto("lblPicoYPlaca",picoYPlaca);
         
     }else{
         let mensaje = "ESTRUCTURA INCORRECTA: "+erroresEstructura;

@@ -113,3 +113,34 @@ obtenerTipoVehiculo = function (placa) {
         return null;
     }
 }
+
+obtenerDiaPicoYPlaca = function(placa){
+    let longitud = placa.length;
+    let mensaje = "SABADOS, DOMINGOS Y FERIADOS HAY LIBRE CIRCULACION";
+    if (longitud == 7){
+        if(placa.charAt(6) == "1" || placa.charAt(6) == "2"){
+            return "PICO Y PLACA DIA LUNES \n "+mensaje;
+        }else if(placa.charAt(6) == "3" || placa.charAt(6) == "4"){
+            return "PICO Y PLACA DIA MARTES \n "+mensaje;
+        }else if(placa.charAt(6) == "5" || placa.charAt(6) == "6"){
+            return "PICO Y PLACA DIA MIERCOLES \n "+mensaje;
+        }else if(placa.charAt(6) == "7" || placa.charAt(6) == "8"){
+            return "PICO Y PLACA DIA JUEVES \n "+mensaje;
+        }else if(placa.charAt(6) == "9" || placa.charAt(6) == "0"){
+            return "PICO Y PLACA DIA VIERNES \n "+mensaje;
+        }
+    }else if (longitud == 8){
+        if(placa.charAt(7) == "1" || placa.charAt(7) == "2"){
+            return "PICO Y PLACA DIA LUNES \n "+mensaje;
+        }else if(placa.charAt(7) == "3" || placa.charAt(7) == "4"){
+            return "PICO Y PLACA DIA MARTES \n "+mensaje;
+        }else if(placa.charAt(7) == "5" || placa.charAt(7) == "6"){
+            return "PICO Y PLACA DIA MIERCOLES \n "+mensaje;
+        }else if(placa.charAt(7) == "7" || placa.charAt(7) == "8"){
+            return "PICO Y PLACA DIA JUEVES \n "+mensaje;
+        }else if(placa.charAt(7) == "9" || placa.charAt(7) == "0"){
+            return "PICO Y PLACA DIA VIERNES \n "+mensaje;
+        }
+    }
+    
+}
