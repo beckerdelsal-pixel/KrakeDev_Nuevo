@@ -5,6 +5,13 @@ validarPlaca = function(){
     erroresEstructura = validarEstructura(placa);
     if(erroresEstructura == null){
         mostrarTexto("lblValidacion","ESTRUCTURA VALIDA");
+        let provincia =obtenerProvincia(placa);
+        if (provincia != null){
+            mostrarTexto("lblResumen",provincia);
+        }else{
+            mostrarTexto("lblResumen","PROVINCIA INCORRECTA");
+        }
+        
         
     }else{
         let mensaje = "ESTRUCTURA INCORRECTA: "+erroresEstructura;
