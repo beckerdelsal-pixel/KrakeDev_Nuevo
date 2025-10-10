@@ -1,0 +1,59 @@
+body{
+    background-color: rgb(183, 224, 210);
+}
+
+.titulo{
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding-bottom: 30px;
+    font-weight: bold
+}
+.principal{
+    border-radius: 5px;
+    margin-top: 110px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 125px;
+    padding-top: 120px;
+    padding-left: 120px;
+    padding-right: 120px;
+    background-color: rgb(41, 166, 166);
+    justify-items: center;
+    align-items: center;
+    
+}
+
+.boton{
+    border-radius: 10px;
+    border-color: chartreuse;
+    width: 100px;
+    height: 30px;
+    background-color: burlywood;
+    align-self: center;
+    font-weight: bolder;
+}
+
+.cajaTexto{
+    background-color: rgb(215, 204, 204);
+    border-radius: 5px;
+    height: 30px;
+
+}
+
+.contenido{
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-color: black;
+}
+
+.validacion{
+    padding-top: 25px;
+    font-size: medium;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+}
+.resumen{
+    padding-top: 25px;
+}

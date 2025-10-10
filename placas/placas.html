@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="placas.js"></script>
+    <script src="sevicioPlacas.js"></script>
+    <script src="utilitarios.js"></script>
+    <script src="utilitariosCadenas.js"></script>
+    <link href="placas.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="principal">
+        <div class="titulo">
+            INGRESE LA PLACA
+        </div>
+        <div class="contenido">
+            <input type="text" id="txtPlaca" class="cajaTexto" />
+            <br>
+            <input type="button" class="boton" value="VALIDAR" onclick="validarPlaca();" />
+            <div id="lblValidacion" class="validacion">
+            </div> 
+            <div id="lblResumen" class="resumen">
+            </div> 
+        </div>
+    </div>
+
+
+</body>
+
+</html>
