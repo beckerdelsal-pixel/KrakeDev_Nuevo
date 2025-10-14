@@ -22,11 +22,12 @@ guardarPalabra = function () {
     }
     if (confirmacionM === true) {
         palabraSecreta = texto;
+        cambiarAPassword("txtSecreta");
         console.log(palabraSecreta);
     } else {
         alert("DEBE INGRESAR UNA PALABRA CON 5 LETRAS MAYUSCULAS");
     }
-    cambiarAPassword("txtSecreta")
+    
 
 }
 cambiarAPassword = function (idComponente) {
@@ -53,7 +54,14 @@ validar = function(letra){
     }
 }
 
-
+ingresarLetra = function(){
+    let recuperado = recuperarTexto("txtLetra");
+    if(esMayuscula(recuperado)===false){
+        alert("SOLO SE ACEPTAN MAYUSCULAS")
+    }else{
+        validar(recuperado);
+    }
+}
 
 
     
