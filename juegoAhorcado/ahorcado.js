@@ -15,23 +15,37 @@ guardarPalabra = function () {
     texto = recuperarTexto("txtSecreta");
     for (let i = 0; i < texto.length; i++) {
         let actual = texto.charAt(i);
-        if (texto.length !=5 || esMayuscula(actual) === false) {
+        if (texto.length != 5 || esMayuscula(actual) === false) {
             confirmacionM = false;
-            
+
         }
     }
-    if(confirmacionM === true){
+    if (confirmacionM === true) {
         palabraSecreta = texto;
         console.log(palabraSecreta);
-    }else{
+    } else {
         alert("DEBE INGRESAR UNA PALABRA CON 5 LETRAS MAYUSCULAS");
     }
     cambiarAPassword("txtSecreta")
 
 }
-cambiarAPassword = function(idComponente){
-    let componente= document.getElementById(idComponente);
-    if(componente.type === 'text'){
+cambiarAPassword = function (idComponente) {
+    let componente = document.getElementById(idComponente);
+    if (componente.type === 'text') {
         componente.type = 'password';
     }
 }
+
+mostrarLetra = function (letra, posicion) {
+    let componente;
+    componente = "div" + posicion;
+    mostrarTexto(componente,letra);
+    
+    
+}
+
+
+
+
+
+    
