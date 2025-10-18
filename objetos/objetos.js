@@ -35,4 +35,5 @@ crearProducto = function(){
     }else if(producto1.stock == producto2.stock){
         console.log("Ambos productos tienen el mismo stock");
     }
+    
 }
