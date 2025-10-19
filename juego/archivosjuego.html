@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
     <head>
         <script src="juego.js"></script>
         <script src="serviciosjuego.js"></script>
@@ -28,4 +29,53 @@
             </div>
         </div>
     </body>
+=======
+
+<head>
+    <script src="juego.js"></script>
+    <script src="serviciosjuego.js"></script>
+    <script src="utilitarios.js"></script>
+    <link href="juego.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="titulos">
+        JUEGA PIEDRA PAPEL O TIJERAS
+    </div>
+    <div class="contenido">
+        <div>
+            <img id="imgPiedra" src="./imagenes/piedra.png" width="200px" height="200px" onclick="jugar('Piedra');" />
+        </div>
+        <div>
+            <img id="imgPapel" src="./imagenes/papel.png" width="200px" height="200px" onclick="jugar('Papel');" />
+        </div>
+        <div>
+            <img id="imgTijera" src="./imagenes/tijera.png" width="200px" height="200px" onclick="jugar('Tijera');" />
+        </div>
+    </div>
+    <div class="segundoContenido">
+        <div>
+            <img id="imgRespuesta" width="200px" height="200px" />
+        </div>
+        <div>
+            <h3 id="lblRespuesta"> </h3>
+        </div>
+        <div class="puntos">
+            PUNTOS USUARIO:
+            <h3 id="lblPuntosUsuario"> </h3>
+        </div>
+        <div class="puntos">
+            PUNTOS COMPUTADORA:
+            <h3 id="lblPuntosComputador"> </h3>
+        </div>
+        <div>
+            <h3 id="lblGanador"> </h3>
+        </div>
+    </div>
+    <div class="contenedor">
+        <input type="button" value="NUEVA PARTIDA" class="boton" onclick="limpiar();"/>
+    </div>
+</body>
+
+>>>>>>> 554cd6349e3c4bdffc9294ed6fc147bd798f6bb4
 </html>

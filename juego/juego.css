@@ -1,0 +1,49 @@
+.contenido{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    background-color: rgb(132, 226, 163);
+    justify-self: center;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+body{
+    background-color: rgb(152, 188, 99);
+}
+.titulos{
+    padding-bottom: 50px;
+    font-size: larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-self: center;
+    font-weight:500;
+}
+.segundoContenido{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    margin-top: 50px;
+}
+.boton{
+    display: flex;
+    flex-direction: row;
+    justify-self: right;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(216, 133, 73);
+    font-size: large;
+    font-weight: 500;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-self: right;
+
+}
+.puntos{
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 400;
+}
