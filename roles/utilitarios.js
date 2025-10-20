@@ -50,3 +50,23 @@ deshabilitarComponente = function(idComponente){
 habilitarComponente = function(idComponente){
     document.getElementById(idComponente).disabled = false;
 }
+
+esDigito = function(caracter){
+    let digito;
+    digito = caracter.charCodeAt(0);
+    if (digito >= 48 & digito <= 57){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+letraMayuscula = function (caracter) {
+    let prueba;
+    prueba = caracter.charCodeAt(0);
+    if (prueba >= 65 && prueba <= 90) {
+        return true;
+    } else {
+        return false;
+    }
+}

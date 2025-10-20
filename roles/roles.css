@@ -89,9 +89,7 @@ tbody tr:nth-child(odd) {
     background-color: #dbdfd2;
   }
   
-  tbody tr {
-    background-image: url(noise.png);
-  }
+  
   
   table {
     background-color: #0b0c0c;

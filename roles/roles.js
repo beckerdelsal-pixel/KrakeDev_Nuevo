@@ -1,11 +1,11 @@
 let esNuevo = false;
 
 let empleados = [
-    {cedula:"1714616123",nombre:"John",apellido:"Cena",sueldo:500.0},
-    {cedula:"0914632123",nombre:"Luisa",apellido:"Gonzalez",sueldo:900.0}
+    { cedula: "1714616123", nombre: "John", apellido: "Cena", sueldo: 500.0 },
+    { cedula: "0914632123", nombre: "Luisa", apellido: "Gonzalez", sueldo: 900.0 }
 ]
 
-mostrarOpcionEmpleado = function(){
+mostrarOpcionEmpleado = function () {
     mostrarComponente("divEmpleado");
     ocultarComponente("divRol");
     ocultarComponente("divResumen");
@@ -16,37 +16,156 @@ mostrarOpcionEmpleado = function(){
     deshabilitarComponente("txtSueldo");
     deshabilitarComponente("btnGuardar");
 }
-mostrarOpcionRol = function(){
+mostrarOpcionRol = function () {
     ocultarComponente("divEmpleado");
     mostrarComponente("divRol");
     ocultarComponente("divResumen");
 }
-mostrarOpcionResumen = function(){
+mostrarOpcionResumen = function () {
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
     mostrarComponente("divResumen");
 }
 
-mostrarEmpleados = function(){
+mostrarEmpleados = function () {
     let cmpTabla = document.getElementById("tablaEmpleados");
-    let contenidoTabla = "<table><tr><th>CEDULA</th>"+
-    "<th>NOMBRE</th><th>APELLIDO</th><th>SUELDO</th></tr>";
-    for(i=0;i<empleados.length;i++){
+    let contenidoTabla = "<table><tr><th>CEDULA</th>" +
+        "<th>NOMBRE</th><th>APELLIDO</th><th>SUELDO</th></tr>";
+    for (i = 0; i < empleados.length; i++) {
         let elementoEmpleado = empleados[i];
-        contenidoTabla += "<tr><td>"+elementoEmpleado.cedula+"</td>"+
-        "<td>"+elementoEmpleado.nombre+"</td>"+
-        "<td>"+elementoEmpleado.apellido+"</td>"+
-        "<td>"+elementoEmpleado.sueldo+"</td>";
+        contenidoTabla += "<tr><td>" + elementoEmpleado.cedula + "</td>" +
+            "<td>" + elementoEmpleado.nombre + "</td>" +
+            "<td>" + elementoEmpleado.apellido + "</td>" +
+            "<td>" + elementoEmpleado.sueldo + "</td>";
     }
-    contenidoTabla+= "</table>";
+    contenidoTabla += "</table>";
     cmpTabla.innerHTML = contenidoTabla;
 }
 
-ejecutarNuevo = function(){
+ejecutarNuevo = function () {
     esNuevo = true;
     habilitarComponente("txtCedula");
     habilitarComponente("txtNombre");
     habilitarComponente("txtApellido");
     habilitarComponente("txtSueldo");
     habilitarComponente("btnGuardar");
+}
+buscarEmpleado = function (cedula) {
+    let empleadoEncontrado = null;
+    let elementoEmpleado;
+    for (let i = 0; i < empleados.length; i++) {
+        elementoEmpleado = empleados[i];
+        if (elementoEmpleado.cedula == cedula) {
+            empleadoEncontrado = elementoEmpleado;
+            break;
+        }
+    }
+    return empleadoEncontrado;
+}
+agregarEmpleado = function (empleado) {
+    let resultado = buscarEmpleado(empleado.cedula);
+    if (resultado == null) {
+        empleados.push(empleado);
+        return true;
+    } else {
+        return false;
+    }
+}
+guardar = function () {
+    //validacion cedula
+    let erroresCedula = "";
+    let digito = false;
+    let tamanioCedula = false;
+    let valorCedula = recuperarTexto("txtCedula");
+    for (let i = 0; i < valorCedula.length; i++) {
+        let caracterCedula = valorCedula.charAt(i);
+        if (esDigito(caracterCedula)) {
+            digito =true;
+        }
+        if (valorCedula.length == 10) {
+            tamanioCedula = true;
+        }
+    }
+    if(!digito){
+        erroresCedula += "Todos los caracteres deben ser digitos";
+    }
+    if(!tamanioCedula){
+        erroresCedula += "La cedula debe tener 10 digitos";
+    }
+    
+    mostrarTexto("lblErrorCedula",erroresCedula);
+
+    //validacion nombre
+    let erroresNombre = "";
+    let letra = false;
+    let tamanioNombre = false;
+    let valorNombre = recuperarTexto("txtNombre");
+    for(let i=0; i<valorNombre.length;i++){
+        let caracterNombre = valorNombre.charAt(i);
+        if(letraMayuscula(caracterNombre)){
+            letra = true;
+        }
+        if(valorNombre.length >= 3){
+            tamanioNombre=true;
+        }
+    }
+    if(!letra){
+        erroresNombre += "Los caracteres deben ser letras mayusculas";
+    }
+    if(!tamanioNombre){
+        erroresNombre += "Debe ingresar al menos 3 caracteres";
+    }
+    mostrarTexto("lblErrorNombre",erroresNombre);
+
+    // validacion apellido
+    let erroresApellido = "";
+    let letraApellido = false;
+    let tamanioApellido = false;
+    let valorApellido = recuperarTexto("txtApellido");
+    for(let i=0; i<valorApellido.length;i++){
+        let caracterApellido = valorApellido.charAt(i);
+        if(letraMayuscula(caracterApellido)){
+            letraApellido = true;
+        }
+        if(valorApellido.length >= 3){
+            tamanioApellido=true;
+        }
+    }
+    if(!letraApellido){
+        erroresApellido += "Los caracteres deben ser letras mayusculas";
+    }
+    if(!tamanioApellido){
+        erroresApellido += "Debe ingresar al menos 3 caracteres";
+    }
+    mostrarTexto("lblErrorApellido",erroresApellido);
+
+    //validacion sueldo
+    let cmpSueldo = document.getElementById("txtSueldo");
+    let valorSueldo = parseFloat(cmpSueldo.value);
+    let errorSueldo = "";
+    if(isNaN(valorSueldo)){
+        errorSueldo += "Debe ingresar solo digitos en este campo";
+    }
+    if(valorSueldo< 400 || valorSueldo> 5000){
+        errorSueldo += "El sueldo debe estar entre 400 y 5000 incluidos";
+    }
+
+    mostrarTexto("lblErrorSueldo",errorSueldo);
+
+    if(erroresCedula == "" & erroresNombre == "" & erroresApellido == "" &errorSueldo == ""){
+        if(esNuevo == true){
+            let empleado ={};
+            empleado.cedula = valorCedula;
+            empleado.nombre = valorNombre;
+            empleado.apellido = valorApellido;
+            empleado.sueldo = valorSueldo;
+            let retorno = agregarEmpleado(empleado);
+            if(retorno == true){
+                alert("EMPLEADO GUARDADO CORRECTAMENTE");
+                mostrarEmpleados();
+            }else{
+                alert("YA EXISTE UN EMPLEADO REGISTRADO CON LA CEDULA: "+valorCedula);
+            }
+        }
+    }
 }
