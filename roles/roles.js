@@ -80,91 +80,96 @@ guardar = function () {
     for (let i = 0; i < valorCedula.length; i++) {
         let caracterCedula = valorCedula.charAt(i);
         if (esDigito(caracterCedula)) {
-            digito =true;
+            digito = true;
         }
         if (valorCedula.length == 10) {
             tamanioCedula = true;
         }
     }
-    if(!digito){
+    if (!digito) {
         erroresCedula += "Todos los caracteres deben ser digitos";
     }
-    if(!tamanioCedula){
+    if (!tamanioCedula) {
         erroresCedula += "La cedula debe tener 10 digitos";
     }
-    
-    mostrarTexto("lblErrorCedula",erroresCedula);
+
+    mostrarTexto("lblErrorCedula", erroresCedula);
 
     //validacion nombre
     let erroresNombre = "";
     let letra = false;
     let tamanioNombre = false;
     let valorNombre = recuperarTexto("txtNombre");
-    for(let i=0; i<valorNombre.length;i++){
+    for (let i = 0; i < valorNombre.length; i++) {
         let caracterNombre = valorNombre.charAt(i);
-        if(letraMayuscula(caracterNombre)){
+        if (letraMayuscula(caracterNombre)) {
             letra = true;
         }
-        if(valorNombre.length >= 3){
-            tamanioNombre=true;
+        if (valorNombre.length >= 3) {
+            tamanioNombre = true;
         }
     }
-    if(!letra){
+    if (!letra) {
         erroresNombre += "Los caracteres deben ser letras mayusculas";
     }
-    if(!tamanioNombre){
+    if (!tamanioNombre) {
         erroresNombre += "Debe ingresar al menos 3 caracteres";
     }
-    mostrarTexto("lblErrorNombre",erroresNombre);
+    mostrarTexto("lblErrorNombre", erroresNombre);
 
     // validacion apellido
     let erroresApellido = "";
     let letraApellido = false;
     let tamanioApellido = false;
     let valorApellido = recuperarTexto("txtApellido");
-    for(let i=0; i<valorApellido.length;i++){
+    for (let i = 0; i < valorApellido.length; i++) {
         let caracterApellido = valorApellido.charAt(i);
-        if(letraMayuscula(caracterApellido)){
+        if (letraMayuscula(caracterApellido)) {
             letraApellido = true;
         }
-        if(valorApellido.length >= 3){
-            tamanioApellido=true;
+        if (valorApellido.length >= 3) {
+            tamanioApellido = true;
         }
     }
-    if(!letraApellido){
+    if (!letraApellido) {
         erroresApellido += "Los caracteres deben ser letras mayusculas";
     }
-    if(!tamanioApellido){
+    if (!tamanioApellido) {
         erroresApellido += "Debe ingresar al menos 3 caracteres";
     }
-    mostrarTexto("lblErrorApellido",erroresApellido);
+    mostrarTexto("lblErrorApellido", erroresApellido);
 
     //validacion sueldo
     let cmpSueldo = document.getElementById("txtSueldo");
     let valorSueldo = parseFloat(cmpSueldo.value);
     let errorSueldo = "";
-    if(isNaN(valorSueldo)){
+    if (isNaN(valorSueldo)) {
         errorSueldo += "Debe ingresar solo digitos en este campo";
     }
-    if(valorSueldo< 400 || valorSueldo> 5000){
+    if (valorSueldo < 400 || valorSueldo > 5000) {
         errorSueldo += "El sueldo debe estar entre 400 y 5000 incluidos";
     }
 
-    mostrarTexto("lblErrorSueldo",errorSueldo);
+    mostrarTexto("lblErrorSueldo", errorSueldo);
 
-    if(erroresCedula == "" & erroresNombre == "" & erroresApellido == "" &errorSueldo == ""){
-        if(esNuevo == true){
-            let empleado ={};
+    if (erroresCedula == "" & erroresNombre == "" & erroresApellido == "" & errorSueldo == "") {
+        if (esNuevo == true) {
+            let empleado = {};
             empleado.cedula = valorCedula;
             empleado.nombre = valorNombre;
             empleado.apellido = valorApellido;
             empleado.sueldo = valorSueldo;
             let retorno = agregarEmpleado(empleado);
-            if(retorno == true){
+            if (retorno == true) {
                 alert("EMPLEADO GUARDADO CORRECTAMENTE");
                 mostrarEmpleados();
-            }else{
-                alert("YA EXISTE UN EMPLEADO REGISTRADO CON LA CEDULA: "+valorCedula);
+                deshabilitarComponente("txtCedula");
+                deshabilitarComponente("txtNombre");
+                deshabilitarComponente("txtApellido");
+                deshabilitarComponente("txtSueldo");
+                deshabilitarComponente("btnGuardar");
+            } else {
+                alert("YA EXISTE UN EMPLEADO REGISTRADO CON LA CEDULA: " + valorCedula);
             }
         }
     }
