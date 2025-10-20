@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+jugar = function(seleccionado){
+    let elemento = generarElemento();
+    seleccionado = generarRuta(elemento);
+    mostrarImagen("imgRespuesta",seleccionado);
+    let ganador = determinarGanador(elemento, seleccionado);
+
+    if(ganador === 0){
+        mostrarTexto("lblRespuesta", "EMPATE");
+        console.log("EMPATE ");
+    }else if(ganador === 1){
+        mostrarTexto("lblRespuesta", "GANA EL JUGADOR 1");
+        console.log("GANA JUGADOR 1");
+    }else if(ganador === 2){
+        mostrarTexto("lblRespuesta", "GANA EL JUGADOR 2 (MAQUINA)");
+        console.log("GANA JUGADOR 2");
+    }
+    
+=======
 let puntosUsuario = 0;
 let puntosComputador = 0;
 jugar = function (seleccionado) {
@@ -34,4 +53,5 @@ limpiar = function(){
     mostrarTexto("lblPuntosComputador","");
     mostrarTexto("lblGanador","");
     mostrarImagen("imgRespuesta","");
+>>>>>>> 554cd6349e3c4bdffc9294ed6fc147bd798f6bb4
 }

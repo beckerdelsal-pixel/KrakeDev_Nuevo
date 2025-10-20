@@ -22,6 +22,19 @@ generarElemento = function () {
 determinarGanador = function (eleccionJugador1, eleccionJugador2) {
     let retorno;
     if (eleccionJugador1 === eleccionJugador2) {
+<<<<<<< HEAD
+        return 0;
+    }
+    if (eleccionJugador1 === "Piedra" & eleccionJugador2 === "Tijera" ||
+        eleccionJugador1 === "Tijera" & eleccionJugador2 === "Papel" ||
+        eleccionJugador1 === "Papel" & eleccionJugador2 === "Piedra") {
+        return 1;
+    }
+    if (eleccionJugador2 === "Piedra" & eleccionJugador1 === "Tijera" ||
+        eleccionJugador2 === "Tijera" & eleccionJugador1 === "Papel" ||
+        eleccionJugador2 === "Papel" & eleccionJugador1 === "Piedra") {
+        return 2;
+=======
         retorno = 0;
     }
     if (eleccionJugador1 === "Piedra" && eleccionJugador2 === "Tijera" ||
@@ -33,6 +46,7 @@ determinarGanador = function (eleccionJugador1, eleccionJugador2) {
         eleccionJugador2 === "Tijera" && eleccionJugador1 === "Papel" ||
         eleccionJugador2 === "Papel" && eleccionJugador1 === "Piedra") {
         retorno = 2;
+>>>>>>> 554cd6349e3c4bdffc9294ed6fc147bd798f6bb4
     }
     return retorno;
 }
