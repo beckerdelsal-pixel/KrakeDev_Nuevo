@@ -212,3 +212,16 @@ limpiar = function(){
     esNuevo = false;
     deshabilitar();
 }
+
+buscarPorRol = function(){
+    let cedulaBuscar = recuperarTexto("txtBusquedaCedulaRol");
+    let encontrada = buscarEmpleado(cedulaBuscar);
+    if(encontrada!= null){
+        mostrarTexto("infoCedula",encontrada.cedula);
+        mostrarTexto("infoNombre",encontrada.nombre+" "+encontrada.apellido);
+        mostrarTexto("infoSueldo",encontrada.sueldo);
+
+    }else{
+        alert("NO EXISTE EMPLEADO");
+    }
+}
