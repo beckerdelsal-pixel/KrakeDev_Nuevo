@@ -20,6 +20,7 @@ mostrarOpcionRol = function () {
     mostrarComponente("divRol");
     ocultarComponente("divResumen");
     deshabilitarComponente("btnGuardarRol");
+    mostrarRoles();
 }
 mostrarOpcionResumen = function () {
     ocultarComponente("divEmpleado");
@@ -292,12 +293,45 @@ guardarRol = function () {
     rol.sueldo = valorSueldo;
     rol.aporteIESSEmpleado = valorAporteIESS;
     rol.aporteIESSEmpleador = aporteEmpleador;
-    rol.valosPagar = valorAPagar;
+    rol.valorPagar = valorAPagar;
     let agregado = agregarRol(rol);
     if (agregado == true) {
         //alert("ROL GUARDADO CORRECTAMENTE");
         mostrarEmpleados();
         deshabilitarComponente("btnGuardarRol");
+        mostrarRoles();
+        mostrarTotales();
     }
 
+}
+mostrarRoles = function () {
+    let cmpTabla = document.getElementById("tablaResumen");
+    let contenidoTabla = "<table><tr><th>CEDULA</th>" +
+        "<th>NOMBRE</th><th>VALOR A PAGAR</th><th>APORTE EMPLEADO</th><th>APORTE EMPLEADOR</th></tr>";
+    for (i = 0; i < roles.length; i++) {
+        let elementoRol = roles[i];
+        contenidoTabla += "<tr><td>" + elementoRol.cedula + "</td>" +
+            "<td>" + elementoRol.nombre + "</td>" +
+            "<td>" + elementoRol.valorPagar + "</td>" +
+            "<td>" + elementoRol.aporteIESSEmpleado + "</td>" +
+            "<td>" + elementoRol.aporteIESSEmpleador + "</td>";
+    }
+    contenidoTabla += "</table>";
+    cmpTabla.innerHTML = contenidoTabla;
+}
+
+mostrarTotales = function(){
+    let totalEmpleado = 0;
+    let totalEmpleador = 0;
+    let totalAPagar = 0;
+    for(let i=0; i<roles.length;i++){
+        let resultado = roles[i]
+        totalEmpleado = totalEmpleado + resultado.aporteIESSEmpleado;
+        totalEmpleador = totalEmpleador + resultado.aporteIESSEmpleador;
+        totalAPagar = totalAPagar + resultado.valorPagar;
+    }
+    mostrarTexto("infoTotalPago",totalAPagar);
+    mostrarTexto("infoAporteEmpresa",totalEmpleador);
+    mostrarTexto("infoAporteEmpleado",totalEmpleado);
+    mostrarRoles();
 }
