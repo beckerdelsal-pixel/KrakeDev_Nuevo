@@ -13,10 +13,10 @@
             <div class="area">
                 <div class="ingresoDatos">
                     <div class="tituloCampo">
-                        
+
                     </div>
                     <div>
-                       <!-- <input type="text" class="cajaTexto" id="txtBusquedaCedula" />
+                        <!-- <input type="text" class="cajaTexto" id="txtBusquedaCedula" />
                         <div class="error" id="lblErrorBusqueda"></div>-->
                     </div>
                 </div>
@@ -44,23 +44,39 @@
                         <div class="error" id="lblErrorEdad"></div>
                     </div>
                 </div>
-                
+
                 <div class="botones">
                     <div class="contenedorBoton">
-                        <input type="button" value="GUARDAR" class="estiloBoton" id="btnGuardar" onclick="agregarPersona();"/>
+                        <input type="button" value="GUARDAR" class="estiloBoton" id="btnGuardar"
+                            onclick="agregarPersona();" />
                     </div>
                     <div class="contenedorBoton">
-                        <input type="button" value="LIMPIAR" class="estiloBoton" onclick="limpiar();"/>
+                        <input type="button" value="LIMPIAR" class="estiloBoton" onclick="limpiar();" />
+                    </div>
+                    <div class="contenedorBoton">
+                        <input type="button" value="ENCONTRAR MAYOR" class="estiloBoton" onclick="determinarMayor();" />
+                    </div>
+                    <div class="contenedorBoton">
+                        <input type="button" value="ENCONTRAR MENOR" class="estiloBoton" onclick="determinarMenor();" />
                     </div>
                 </div>
                 <div id="tablaPersonas" class="areaTabla">
 
                 </div>
-            </div>
+            
             <div class="logoEscuela">
                 <!-- <img src="./imagenes/empleado.jpg" width="80%" /> -->
             </div>
+            </div>
+            <div class="areaResultado" id="lblMostrarMayor">
+
+            </div>
+            <div class="areaResultado" id="lblMostrarMenor">
+
+            </div>
         </div>
+
+        
     </div>
 </body>
 

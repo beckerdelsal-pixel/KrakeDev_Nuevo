@@ -5,10 +5,10 @@ let persona4;
 let persona5;
 let personas = [
     persona1 = {
-        nombre: "Marcos", edad:18
+        nombre: "Marcos", edad: 18
     },
-    persona2 ={
-        nombre:"Roberto", edad:18
+    persona2 = {
+        nombre: "Roberto", edad: 18
     },
     persona3 = {
         nombre: "Kathe", edad: 25
@@ -21,31 +21,31 @@ let personas = [
     }
 ];
 
-agregarPersona = function(){
- 
-    let errorNombre="";
+agregarPersona = function () {
+
+    let errorNombre = "";
     let valorNombre = recuperarTexto("txtNombre");
-    if(valorNombre.length >=3){
+    if (valorNombre.length >= 3) {
         console.log("Nombre valido");
-        mostrarTexto("lblErrorNombre","");
-        
-    }else{
+        mostrarTexto("lblErrorNombre", "");
+
+    } else {
         errorNombre = "El nombre debe tener minimo 3 caracteres ";
-        mostrarTexto("lblErrorNombre",errorNombre);
+        mostrarTexto("lblErrorNombre", errorNombre);
     }
-    
 
-    let errorEdad ="";
+
+    let errorEdad = "";
     let valorEdad = recuperarInt("txtEdad");
-    if(valorEdad>0 & valorEdad <100){
+    if (valorEdad > 0 & valorEdad < 100) {
         console.log("Edad valida");
-        mostrarTexto("lblErrorEdad","");
-    }else{
+        mostrarTexto("lblErrorEdad", "");
+    } else {
         errorEdad = "La edad debe estar entre 0 y 100 anios";
-        mostrarTexto("lblErrorEdad",errorEdad);
+        mostrarTexto("lblErrorEdad", errorEdad);
     }
 
-    if(errorNombre == "" & errorEdad==""){
+    if (errorNombre == "" & errorEdad == "") {
         let nuevaPersona = {};
         nuevaPersona.nombre = valorNombre;
         nuevaPersona.edad = valorEdad;
@@ -53,21 +53,57 @@ agregarPersona = function(){
         console.log("Persona agregada");
         alert("PERSONA AGREGADA CORRECTAMENTE");
         mostrarPersonas();
-    }else{
+    } else {
         alert("ALGO FALLO, INTENTE NUEVAMENTE");
     }
-    
+
 }
 
-mostrarPersonas = function(){
+mostrarPersonas = function () {
     let cmpTabla = document.getElementById("tablaPersonas");
     let contenidoTabla = "<table><tr><th>EDAD</th>" +
         "<th>NOMBRE</th></tr>";
     for (i = 0; i < personas.length; i++) {
         let elementoPersona = personas[i];
         contenidoTabla += "<tr><td>" + elementoPersona.edad + "</td>" +
-            "<td>" + elementoPersona.nombre + "</td>" ;
+            "<td>" + elementoPersona.nombre + "</td>";
     }
     contenidoTabla += "</table>";
     cmpTabla.innerHTML = contenidoTabla;
+}
+
+encontrarMayor = function () {
+    let personaMayor = personas[0];
+    let elementoPersonas;
+    for (let i = 0; i < personas.length; i++) {
+        elementoPersonas = personas[i];
+        console.log(elementoPersonas);
+        if (elementoPersonas.edad > personaMayor.edad) {
+            personaMayor = elementoPersonas;
+        }
+    }
+    return personaMayor;
+}
+
+encontrarMenor = function () {
+    let personaMenor = personas[0];
+    let elementoPersonas;
+    for (let i = 0; i < personas.length; i++) {
+        elementoPersonas = personas[i];
+        console.log(elementoPersonas);
+        if (elementoPersonas.edad < personaMenor.edad) {
+            personaMenor = elementoPersonas;
+        }
+    }
+    return personaMenor;
+}
+determinarMayor = function () {
+    let mayor;
+    mayor = encontrarMayor();
+    mostrarTexto("lblMostrarMayor","La persona mayor del arreglo es:  "+mayor.nombre+ " con "+ mayor.edad+ " anios");
+}
+determinarMenor = function () {
+    let menor;
+    menor = encontrarMenor();
+    mostrarTexto("lblMostrarMenor","La persona menor del arreglo es:  "+menor.nombre+ " con "+ menor.edad+ " anios");
 }
