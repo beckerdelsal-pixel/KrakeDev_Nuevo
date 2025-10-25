@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="estudiantes.js"></script>
+    <script src="utilitarios.js"></script>
+</head>
+
+<body onload="mostrarEstudiantes();">
+    <div id="divEmpleado">
+        <div class="principal">
+            <div class="area">
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        NOMBRE COMPLETO
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNombreCompleto" />
+                        <div class="error" id="lblErrorNombreCompleto"></div>
+                    </div>
+                </div>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        CORREO
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtCorreo" />
+                        <div class="error" id="lblErrorCorreo"></div>
+                    </div>
+                </div>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        ID
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtId" />
+                        <div class="error" id="lblErrorId"></div>
+                    </div>
+                </div>
+                
+                <div class="botones">
+                    
+                    <div class="contenedorBoton">
+                        <input type="button" value="GUARDAR" class="estiloBoton" id="btnGuardar" onclick="registrarEstudiantes();"/>
+                    </div>
+                    <div class="contenedorBoton">
+                        <input type="button" value="LIMPIAR" class="estiloBoton" onclick="limpiar();"/>
+                    </div>
+                </div>
+                <div id="tablaEstudiantes" class="areaTabla">
+
+                </div>
+
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        ELIMINAR POR ID: 
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtEliminarId" />
+                        <div class="error" id="lblErrorId"></div>
+                    </div>
+                    <div class="contenedorBoton">
+
+
+                        <input type="button" value="EIMINAR ESTUDIANTE" class="estiloBoton" id="btnGuardar" onclick="eliminarPorId();"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
